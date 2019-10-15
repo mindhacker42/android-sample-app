@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/kaminoPlanetFragment">
+
+    <fragment
+        android:id="@+id/kaminoPlanetFragment"
+        android:name="si.matijav.kamino.ui.kaminoplanet.KaminoPlanetFragment"
+        android:label="kamino_planet_fragment"
+        tools:layout="@layout/kamino_planet_fragment" >
+        <action
+            android:id="@+id/action_kaminoPlanetFragment_to_residentsFragment"
+            app:destination="@id/residentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/residentsFragment"
+        android:name="si.matijav.kamino.ui.residents.ResidentsFragment"
+        android:label="residents_fragment"
+        tools:layout="@layout/residents_fragment" >
+        <action
+            android:id="@+id/action_residentsFragment_to_residentDetailsFragment"
+            app:destination="@id/residentDetailsFragment" />
+        <argument
+            android:name="residentIds"
+            app:argType="integer[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/residentDetailsFragment"
+        android:name="si.matijav.kamino.ui.residentdetails.ResidentDetailsFragment"
+        android:label="resident_details_fragment"
+        tools:layout="@layout/resident_details_fragment" >
+        <argument
+            android:name="resident"
+            app:argType="si.matijav.kamino.data.Resident"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

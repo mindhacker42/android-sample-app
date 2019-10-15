@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">vignette4.wikia.nocookie.net</domain>
+        <domain includeSubdomains="true">vignette3.wikia.nocookie.net</domain>
+        <domain includeSubdomains="true">img.lum.dolimg.com</domain>
+        <domain includeSubdomains="true">www.cinemablend.com</domain>
+    </domain-config>
+</network-security-config>

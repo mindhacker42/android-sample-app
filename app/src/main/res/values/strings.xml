@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Star Wars Demo</string>
+    <string name="rotation_period_label">Rotation period</string>
+    <string name="orbital_period_label">Orbital period</string>
+    <string name="diameter_label">Diameter</string>
+    <string name="population_label">Population</string>
+    <string name="see_all_residents">See all residents</string>
+    <string name="kamino_planet">Kamino planet</string>
+    <string name="climate_label">Climate</string>
+    <string name="gravity_label">Gravity</string>
+    <string name="terrain_label">Terrain</string>
+    <string name="surface_water_label">Surface water</string>
+    <string name="height">Height</string>
+    <string name="placeholder_text">-</string>
+    <string name="diameter_value">%d km</string>
+    <string name="orbital_period_value">%d standard days</string>
+    <string name="rotation_period_value">%d hours</string>
+    <string name="population_value">%,d</string>
+    <string name="surface_water_value">%d%%</string>
+    <string name="likes_value">%d likes</string>
+    <string name="resident">Resident</string>
+    <string name="height_label">Height</string>
+    <string name="height_value">%d cm</string>
+    <string name="mass_label">Mass</string>
+    <string name="mass_value">%s kg</string>
+    <string name="hair_color_label">Hair color</string>
+    <string name="skin_color_label">Skin color</string>
+    <string name="eye_color_label">Eye color</string>
+    <string name="birth_year_label">Birth year</string>
+    <string name="gender_label">Gender</string>
+</resources>
