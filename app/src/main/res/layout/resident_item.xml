@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="@{() -> viewModel.onResidentSelected(resident)}"
+        android:onClick="@{() -> viewModel.selectResident(resident)}"
         android:foreground="?attr/selectableItemBackground">
 
         <ImageView

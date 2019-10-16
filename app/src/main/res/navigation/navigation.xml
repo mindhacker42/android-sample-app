@@ -12,7 +12,11 @@
         tools:layout="@layout/kamino_planet_fragment" >
         <action
             android:id="@+id/action_kaminoPlanetFragment_to_residentsFragment"
-            app:destination="@id/residentsFragment" />
+            app:destination="@id/residentsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/residentsFragment"
@@ -21,7 +25,11 @@
         tools:layout="@layout/residents_fragment" >
         <action
             android:id="@+id/action_residentsFragment_to_residentDetailsFragment"
-            app:destination="@id/residentDetailsFragment" />
+            app:destination="@id/residentDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <argument
             android:name="residentIds"
             app:argType="integer[]" />

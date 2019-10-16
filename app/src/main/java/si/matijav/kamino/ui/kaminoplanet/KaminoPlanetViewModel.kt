@@ -1,21 +1,13 @@
 package si.matijav.kamino.ui.kaminoplanet
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import si.matijav.kamino.data.Planet
-import si.matijav.kamino.data.repositories.DefaultPlanetRepository
 import si.matijav.kamino.data.repositories.PlanetRepository
-import si.matijav.kamino.data.source.ApiService
 import si.matijav.kamino.data.source.Result
 
-class KaminoPlanetViewModel : ViewModel() {
+class KaminoPlanetViewModel(private val planetRepository: PlanetRepository) : ViewModel() {
 
     private val kaminoPlanetId = 10
-
-    // TODO: change to constructor injection
-    private val planetRepository: PlanetRepository = DefaultPlanetRepository(ApiService.instance)
 
     val kaminoPlanet: LiveData<Planet> = initGetKaminoPlanet()
 
@@ -44,6 +36,13 @@ class KaminoPlanetViewModel : ViewModel() {
                 return@map result.data as Planet
             }
             return@map null
+        }
+    }
+
+    class Factory(private val planetRepository: PlanetRepository) :
+        ViewModelProvider.NewInstanceFactory() {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return KaminoPlanetViewModel(planetRepository) as T
         }
     }
 }

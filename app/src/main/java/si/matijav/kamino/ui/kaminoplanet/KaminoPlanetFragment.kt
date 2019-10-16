@@ -17,6 +17,7 @@ import androidx.transition.TransitionManager
 import si.matijav.kamino.R
 import si.matijav.kamino.data.Planet
 import si.matijav.kamino.databinding.KaminoPlanetFragmentBinding
+import si.matijav.kamino.App
 
 class KaminoPlanetFragment : Fragment() {
 
@@ -32,7 +33,8 @@ class KaminoPlanetFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val rootView = inflater.inflate(R.layout.kamino_planet_fragment, container, false)
-        viewModel = ViewModelProviders.of(this).get(KaminoPlanetViewModel::class.java)
+
+        initializeViewModel()
 
         dataBinding = KaminoPlanetFragmentBinding.bind(rootView)
         dataBinding.fragment = this
@@ -96,5 +98,11 @@ class KaminoPlanetFragment : Fragment() {
         transition = ChangeBounds()
         transition.setInterpolator(AnticipateOvershootInterpolator(1.0f))
         transition.setDuration(500)
+    }
+
+    private fun initializeViewModel() {
+        val planetRepository = App.getApp(requireContext()).planetRepository
+        viewModel = ViewModelProviders.of(this, KaminoPlanetViewModel.Factory(planetRepository))
+            .get(KaminoPlanetViewModel::class.java)
     }
 }

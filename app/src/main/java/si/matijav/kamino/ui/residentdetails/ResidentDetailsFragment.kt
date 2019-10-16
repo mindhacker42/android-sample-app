@@ -27,6 +27,7 @@ class ResidentDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.resident_details_fragment, container, false)
+
         viewModel = ViewModelProviders.of(this).get(ResidentDetailsViewModel::class.java)
         viewModel.resident = args.resident
 

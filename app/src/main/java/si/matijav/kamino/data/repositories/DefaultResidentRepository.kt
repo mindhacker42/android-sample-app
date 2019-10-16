@@ -47,16 +47,6 @@ class DefaultResidentRepository(
         return LiveDataReactiveStreams.fromPublisher(mergedResult)
     }
 
-    override fun getResident(residentId: Int): LiveData<Result<Resident>> {
-        val request = apiService.api.getResident(residentId)
-            .map<Result<Resident>> { resident -> Result.Success(resident) }
-            .onErrorReturn { throwable: Throwable ->
-                Result.Error(Exception(throwable))
-            }
-            .toFlowable()
-        return LiveDataReactiveStreams.fromPublisher(request)
-    }
-
     fun getResidentRemote(residentId: Int): Observable<Resident> {
         return apiService.api.getResident(residentId)
             .map { resident ->

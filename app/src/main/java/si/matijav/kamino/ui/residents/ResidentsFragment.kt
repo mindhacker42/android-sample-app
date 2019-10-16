@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import si.matijav.kamino.R
 import si.matijav.kamino.databinding.ResidentsFragmentBinding
-
+import si.matijav.kamino.App
 
 class ResidentsFragment : Fragment() {
 
@@ -28,8 +28,7 @@ class ResidentsFragment : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.residents_fragment, container, false)
 
-        viewModel = ViewModelProviders.of(this).get(ResidentsViewModel::class.java)
-        viewModel.setResidentIds(args.residentIds.asList())
+        initializeViewModel()
 
         dataBinding = ResidentsFragmentBinding.bind(rootView)
         dataBinding.lifecycleOwner = viewLifecycleOwner
@@ -44,7 +43,6 @@ class ResidentsFragment : Fragment() {
 
         viewModel.residents.observe(viewLifecycleOwner, Observer { residents ->
             dataBinding.executePendingBindings()
-            residents ?: return@Observer
             this.residentsAdapter.residents = residents
         })
         viewModel.selectedResident.observe(viewLifecycleOwner, Observer { selectedResident ->
@@ -64,4 +62,10 @@ class ResidentsFragment : Fragment() {
         recyclerView.adapter = residentsAdapter
     }
 
+    private fun initializeViewModel() {
+        val residentRepository = App.getApp(requireContext()).residentRepository
+        viewModel = ViewModelProviders.of(this, ResidentsViewModel.Factory(residentRepository))
+            .get(ResidentsViewModel::class.java)
+        viewModel.setResidentIds(args.residentIds.asList())
+    }
 }

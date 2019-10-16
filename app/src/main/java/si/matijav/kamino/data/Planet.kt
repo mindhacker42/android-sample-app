@@ -14,8 +14,8 @@ data class Planet(
     @SerializedName("surface_water") val surfaceWater: Int,
     val population: Int,
     val residents: List<String>,
-    val created: Date,
-    val edited: Date,
+    val created: String,
+    val edited: String,
     @SerializedName("image_url") val imageUrl: String,
     val likes: Int
 ) {
